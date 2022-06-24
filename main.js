@@ -1,30 +1,3 @@
-function drawBoard() {
-    let board = document.querySelector('.board');
-    let block;
-    let flag = true;
-
-    for (let i = 0; i < 8; i++) {
-
-        for (let j = 0; j < 8; j++) {
-
-            if (j == 0)
-                flag = !flag;
-
-            block = document.createElement('div');
-
-            if (flag)
-                block.className = 'block black';
-            else
-                block.className = 'block white';
-            board.appendChild(block);
-            flag = !flag;
-        }
-    }
-}
-
-drawBoard();
-
-
 const products = {
     items: [
         {
@@ -76,15 +49,29 @@ const products = {
     }
 };
 
-console.log(products.getTotalPrice());
 
-var basket = document.getElementById('basket');
+function update() {
+    console.log(products.getTotalPrice());
+    let basket = document.getElementById('monitor');
+    let count = products.getTotalProducts();
+    let cost = products.getTotalPrice();
 
-let count = products.getTotalProducts();
-let cost = products.getTotalPrice();
-
-if (!count) {
-    basket.innerHTML = 'Корзина пуста';
+    if (!count) {
+        basket.innerHTML = 'Корзина пуста';
+    }
+    else { basket.innerHTML = `В корзине: ${count} товаров на сумму ${cost} рублей` }
 }
-else { basket.innerHTML = `В корзине: ${count} товаров на сумму ${cost} рублей` }
 
+update()
+
+function buy(product) {
+    for (var i in products.items) {
+        if (products.items[i].name == product) {
+            products.items[i].count += 1;
+            break
+        }
+    }
+    update()
+}
+
+console.log(products.items)
