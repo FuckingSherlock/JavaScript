@@ -104,5 +104,33 @@ function getButtons() {
     }
 }
 
-
 getButtons()
+
+
+let condition = 1
+
+$('.click-next').click(function () {
+    if (condition == 1) {
+        $('.basket').slideToggle();
+        $('.address').slideToggle();
+        condition += 1
+    }
+    else if (condition == 2) {
+        $('.address').slideToggle();
+        $('.comment').slideToggle()
+        condition += 1
+    }
+})
+
+$('.click-back').click(function () {
+    if (condition == 3) {
+        $('.comment').slideToggle();
+        $('.address').slideToggle();
+        condition -= 1
+    }
+    else if (condition == 2) {
+        $('.address').slideToggle();
+        $('.basket').slideToggle();
+        condition -= 1
+    }
+})
