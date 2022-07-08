@@ -5,23 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Document</title>
-
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="main.js" defer></script>
+
 </head>
 
 <body id="body">
 
-    <div id="basket">
-        <div id="monitor"></div>
-        <div id="product-list">
-            <button type="button" onclick="buy('Сидр')">Купить сидр</button>
-            <button type="button" onclick="buy('Очки')">Купить очки</button>
+    <div class="block">
+        <button class="click-back">Назад</button>
+        <button class="click-next">Далее</button>
+        <br>
+        <div class="basket" style="display:block;">
+            <div id="viev"></div>
+            <div id="monitor"></div>
+            <div id="product-list"></div>
+        </div>
+        <br>
+        <div class="address" style="display:none;">
+            <textarea>Адрес доставки</textarea>
+        </div>
+        <div class="comment" style="display:none;">
+            <textarea>Комментарий</textarea>
         </div>
 
     </div>
-
-
 </body>
 
 </html>
